@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:meditation/icons.dart';
-import 'package:meditation/widgets/svg_asset.dart';
+import 'package:ser/icons.dart';
+import 'package:ser/widgets/svg_asset.dart';
 
 class DiscoverCard extends StatelessWidget {
   final String? title;
@@ -49,24 +49,24 @@ class DiscoverCard extends StatelessWidget {
             ),
           ),
           child: Container(
-            height: 176.w,
-            width: 305.w,
+            height: 176,
+            width: 305,
             child: Stack(
               children: [
                 vectorBottom ??
                     ClipRRect(
                       borderRadius: BorderRadius.circular(26),
                       child: SvgAsset(
-                          height: 176.w,
-                          width: 305.w,
+                          height: 176,
+                          width: 305,
                           assetName: AssetName.vectorBottom),
                     ),
                 vectorTop ??
                     ClipRRect(
                       borderRadius: BorderRadius.circular(26),
                       child: SvgAsset(
-                          height: 176.w,
-                          width: 305.w,
+                          height: 176,
+                          width: 305,
                           assetName: AssetName.vectorTop),
                     ),
                 Padding(
@@ -85,20 +85,20 @@ class DiscoverCard extends StatelessWidget {
                               child: Text(
                                 title!,
                                 style: TextStyle(
-                                    fontSize: 22.w,
+                                    fontSize: 22,
                                     fontWeight: FontWeight.bold,
                                     color: Colors.white),
                               ),
                             ),
                           ),
                           SizedBox(
-                            height: 5.h,
+                            height: 5,
                           ),
                           subtitle != null
                               ? Text(
                                   subtitle!,
                                   style: TextStyle(
-                                      fontSize: 16.w,
+                                      fontSize: 16,
                                       fontWeight: FontWeight.w300,
                                       color: Colors.white),
                                 )
@@ -109,14 +109,14 @@ class DiscoverCard extends StatelessWidget {
                         children: [
                           SvgAsset(
                             assetName: AssetName.headphone,
-                            height: 24.w,
-                            width: 24.w,
+                            height: 24,
+                            width: 24,
                           ),
-                          SizedBox(width: 24.w),
+                          SizedBox(width: 24),
                           SvgAsset(
                             assetName: AssetName.tape,
-                            height: 24.w,
-                            width: 24.w,
+                            height: 24,
+                            width: 24,
                           ),
                         ],
                       )

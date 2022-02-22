@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:meditation/icons.dart';
-import 'package:meditation/widgets/svg_asset.dart';
+import 'package:ser/icons.dart';
+import 'package:ser/widgets/svg_asset.dart';
 
 class DiscoverSmallCard extends StatelessWidget {
   final String? title;
@@ -41,8 +41,8 @@ class DiscoverSmallCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           gradient: LinearGradient(
             colors: [
-              gradientStartColor ?? Color(0xff441DFC),
-              gradientEndColor ?? Color(0xff4E81EB),
+              Color(0xff441DFC),
+              Color(0xff4E81EB),
             ],
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
@@ -50,26 +50,23 @@ class DiscoverSmallCard extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            Container(
-              height: 125.w,
-              width: 150.w,
-            ),
+            Container(height: 125, width: 150),
             ClipRRect(
               borderRadius: BorderRadius.circular(20),
               child: SizedBox(
-                height: 125.w,
-                width: 150.w,
+                height: 125,
+                width: 150,
                 child: Stack(
                   children: [
                     SizedBox(
-                      height: 125.w,
-                      width: 150.w,
+                      height: 125,
+                      width: 150,
                       child: SvgAsset(assetName: AssetName.vectorSmallBottom),
                     ),
                     SizedBox(
                       child: SvgAsset(
-                          height: 125.w,
-                          width: 150.w,
+                          height: 125,
+                          width: 150,
                           fit: BoxFit.fitHeight,
                           assetName: AssetName.vectorSmallTop),
                     ),
@@ -78,10 +75,10 @@ class DiscoverSmallCard extends StatelessWidget {
               ),
             ),
             SizedBox(
-              height: 125.w,
-              width: 150.w,
+              height: 125,
+              width: 150,
               child: Padding(
-                padding: EdgeInsets.only(left: 20.w, top: 20.w, bottom: 20.w),
+                padding: EdgeInsets.only(left: 20, top: 15, bottom: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -89,17 +86,17 @@ class DiscoverSmallCard extends StatelessWidget {
                     Text(
                       title!,
                       style: TextStyle(
-                          fontSize: 18.w,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
-                          color: Colors.white),
+                          color: Color.fromARGB(255, 0, 0, 0)),
                     ),
                     Row(
                       children: [
                         icon ??
                             SvgAsset(
                               assetName: AssetName.headphone,
-                              height: 24.w,
-                              width: 24.w,
+                              height: 24,
+                              width: 24,
                             ),
                       ],
                     )

@@ -14,16 +14,15 @@ class CategoryBoxes extends StatefulWidget {
 class _CategoryBoxesState extends State<CategoryBoxes> {
   bool isSelected = false;
 
-
   @override
   Widget build(BuildContext context) {
-    return   Center(
+    return Center(
       child: GestureDetector(
-        onTap: (){
-         setState(() {
-           isSelected = !isSelected;
-           widget.onPressed!(isSelected);
-         });
+        onTap: () {
+          setState(() {
+            isSelected = !isSelected;
+            widget.onPressed!(isSelected);
+          });
         },
         child: Padding(
           padding: EdgeInsets.only(right: 10.w),
@@ -31,19 +30,26 @@ class _CategoryBoxesState extends State<CategoryBoxes> {
             height: 48.h,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
-              color: isSelected? Color(0xff4A80F0): Color(0xff1C2031),
-              boxShadow: isSelected ? [
-                BoxShadow(
-                  color: Color(0xff4A80F0).withOpacity(0.3),
-                  offset: Offset(0,4),
-                  blurRadius: 20
-                ),
-              ]: [],
+              color: Color.fromARGB(255, 56, 65, 97),
+              boxShadow: isSelected
+                  ? [
+                      BoxShadow(
+                          color: Color(0xff4A80F0).withOpacity(0.3),
+                          offset: Offset(0, 4),
+                          blurRadius: 20),
+                    ]
+                  : [],
             ),
             child: Center(
               child: Padding(
-                padding:  EdgeInsets.symmetric(horizontal: 16.w, vertical: 13.h),
-                child: Text(widget.text!, style: TextStyle(color: Colors.white, fontSize:  17.sp, fontWeight: FontWeight.normal),),
+                padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 13.h),
+                child: Text(
+                  widget.text!,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 17.sp,
+                      fontWeight: FontWeight.normal),
+                ),
               ),
             ),
           ),
@@ -52,10 +58,3 @@ class _CategoryBoxesState extends State<CategoryBoxes> {
     );
   }
 }
-
-
-
-
-
-
-

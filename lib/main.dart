@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:ser/PageData.dart';
 import 'package:ser/aprender.dart';
+import 'package:ser/aprender_page.dart';
 import 'package:ser/bienvenido.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
+import 'globals.dart' as globals;
 
 void main() {
+  globals.aprender_page = 0;
   runApp(MyApp());
 }
 
@@ -12,21 +16,27 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: HomeSER(),
-    );
+    return ScreenUtilInit(
+        designSize: const Size(375, 812),
+        builder: () => MaterialApp(
+              debugShowCheckedModeBanner: false,
+              home: HomeSER(
+                index: 0,
+              ),
+            ));
   }
 }
 
 class HomeSER extends StatefulWidget {
+  int index = 0;
+  HomeSER({required index});
   @override
-  _HomeSERState createState() => _HomeSERState();
+  _HomeSERState createState() {
+    return _HomeSERState();
+  }
 }
 
 class _HomeSERState extends State<HomeSER> {
-  int index = 0;
-
   final screens = [
     Center(
       child: Bienvenido(),
@@ -35,7 +45,10 @@ class _HomeSERState extends State<HomeSER> {
       child: Aprender(),
     ),
     Center(
-      child: Bienvenido(),
+      child: AprenderPage(
+        data: PageData(title: "TestTitle", text: "HELLOOO", icon: Icons.abc),
+        returnToTiles: (int page) {},
+      ),
     )
   ];
 
@@ -75,10 +88,10 @@ class _HomeSERState extends State<HomeSER> {
               FloatingNavbarItem(icon: Icons.book, title: 'Aprender'),
               FloatingNavbarItem(icon: Icons.person, title: 'Creditos'),
             ],
-            currentIndex: index,
-            onTap: (int val) => setState(() => index = val),
+            currentIndex: widget.index,
+            onTap: (int val) => setState(() => widget.index = val),
           ),
         ),
-        body: screens[index]);
+        body: screens[widget.index]);
   }
 }

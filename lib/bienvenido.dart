@@ -9,7 +9,7 @@ class Bienvenido extends StatefulWidget {
 
 class _BienvenidoState extends State<Bienvenido> {
   //Adding the main color of the app
-  Color mainColor = Color(0xFF177767);
+  Color mainColor = Color.fromARGB(255, 31, 159, 138);
   Color secColor = Color.fromARGB(255, 1, 90, 75);
   var containerRadius = Radius.circular(30.0);
   //Adding a list of image URL to simulate the avatar picture
@@ -23,10 +23,10 @@ class _BienvenidoState extends State<Bienvenido> {
           Container(
             height: 60.0,
             child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 12.0, vertical: 0.0),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 12.0, vertical: 10.0),
                 child: Text(
-                  "Bienvenido!",
+                  "Bienvenido",
                   style: TextStyle(color: Colors.white, fontSize: 30),
                 )),
           ),

@@ -5,6 +5,7 @@ import 'package:ser/aprender_page.dart';
 import 'package:ser/bienvenido.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
+import 'package:ser/creditos.dart';
 import 'globals.dart' as globals;
 
 void main() {
@@ -44,16 +45,12 @@ class _HomeSERState extends State<HomeSER> {
     Center(
       child: Aprender(),
     ),
-    Center(
-      child: AprenderPage(
-        data: PageData(title: "TestTitle", text: "HELLOOO", icon: Icons.abc),
-        returnToTiles: (int page) {},
-      ),
-    )
+    Center(child: Creditos())
   ];
 
   //Adding the main color of the app
-  Color mainColor = Color(0xFF177767);
+  //Color mainColor = Color(0xFF177767);
+  Color mainColor = Color.fromARGB(255, 82, 179, 163);
   Color secColor = Color.fromARGB(255, 1, 90, 75);
   var containerRadius = Radius.circular(30.0);
   //Adding a list of image URL to simulate the avatar picture
@@ -81,7 +78,7 @@ class _HomeSERState extends State<HomeSER> {
         bottomNavigationBar: Container(
           color: Colors.white,
           child: FloatingNavbar(
-            backgroundColor: mainColor,
+            backgroundColor: Color.fromARGB(255, 20, 103, 89),
             selectedItemColor: secColor,
             items: [
               FloatingNavbarItem(icon: Icons.home, title: 'Benvenido'),

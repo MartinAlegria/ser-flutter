@@ -4,13 +4,19 @@ import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.da
 import 'package:ser/PageData.dart';
 import 'package:ser/aprender.dart';
 import 'package:ser/main.dart';
+import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:ser/widgets/floating_modal.dart';
+import 'package:ser/widgets/long_tile.dart';
+import 'package:ser/widgets/page_modal.dart';
 import 'globals.dart' as globals;
 
 class AprenderPage extends StatefulWidget {
   final PageData data;
   final Function(int) returnToTiles;
+  bool? back = true;
 
-  AprenderPage({Key? key, required this.data, required this.returnToTiles});
+  AprenderPage(
+      {Key? key, required this.data, required this.returnToTiles, this.back});
   @override
   _AprenderPageState createState() {
     return _AprenderPageState();
@@ -19,7 +25,8 @@ class AprenderPage extends StatefulWidget {
 
 class _AprenderPageState extends State<AprenderPage> {
   //Adding the main color of the app
-  Color mainColor = Color(0xFF177767);
+
+  Color mainColor = Color.fromARGB(255, 31, 159, 138);
   Color secColor = Color.fromARGB(255, 1, 90, 75);
   var containerRadius = Radius.circular(30.0);
   //Adding a list of image URL to simulate the avatar picture
@@ -31,12 +38,14 @@ class _AprenderPageState extends State<AprenderPage> {
         elevation: 0.0,
         title: Row(
           children: [
-            GestureDetector(
-              onTap: () {
-                widget.returnToTiles(0);
-              },
-              child: Icon(Icons.arrow_back),
-            ),
+            !(widget.back != null)
+                ? GestureDetector(
+                    onTap: () {
+                      widget.returnToTiles(0);
+                    },
+                    child: Icon(Icons.arrow_back),
+                  )
+                : Text(""),
             SizedBox(
               width: 10,
             ),
@@ -70,17 +79,54 @@ class _AprenderPageState extends State<AprenderPage> {
                     const EdgeInsets.only(left: 12.0, right: 12.0, top: 10.0),
                 child: ListView(
                   children: [
-                    //Now let's create our chat tile custom widget
-                    Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                      child: Text(
-                        "Nos encanta darte la bienvenida por tu iniciativa para convertirse en un SÚPER SER [Súper Separador(a) Ecológico(a) de Residuos] y valoramos tu interés en informarte sobre lo que puedes hacer en tu hogar para tener un medioambiente más limpio y sano.\n\nAntes de empezar, es importante que sepas que todo lo que comúnmente conocemos como BASURA, los investigadores, científicos y autoridades le llaman RESIDUOS SÓLIDOS URBANOS RSU (por sus iniciales)\n\nEn Muchos lugares separan la basura por colores, nosotros sugerimos utilizar contenedores en 3 colores diferenciados según lo que se depositara en ellos:\n\nVerde: Residuos orgánicos\n\nGris: Residuos inorgánicos reciclables\n\nReisudos inorganicos NO reciclables\n\nTambién existen residuos de manejo especial, electrónicos, peligrosos, y biológicos infecciosos, que se manejan aparte, pero que te explicamos cuáles son y cómo debes separarlos.\n\nHemos preparado varias secciones en las que encontrarás las explicaciones científicas de por que EL NO SEPARAR LOS RESIDUOS LOS CONVIERTE EN CONTAMINANTES.\n\nEs muy importante tomar en cuenta que, para exigir a nuestras autoridades que le den un buen tratamiento a nuestro RSU para que no contaminen, debemos recordar que la responsabilidad de separar los RSU es nuestra. Así que, una vez que los ciudadanos separemos nuestro RSU, podemos exigir a las autoridades les dé el tratamiento apropiado para beneficio nuestro\n\nNecesitamos crear una economía circular local, aprovechemos los residuos y ganemos dinero\n\nEDUCAR PARA NO CONTAMINAR.",
-                        style: TextStyle(
-                            fontSize: 16, fontWeight: FontWeight.w600),
-                        textAlign: TextAlign.justify,
-                      ),
-                    ),
+                    // Texto si existe
+                    widget.data.text.length > 0
+                        ? Padding(
+                            padding: EdgeInsets.symmetric(
+                                horizontal: 10, vertical: 10),
+                            child: Text(
+                              widget.data.text,
+                              style: TextStyle(
+                                  fontSize: 16, fontWeight: FontWeight.w600),
+                              textAlign: TextAlign.justify,
+                            ),
+                          )
+                        : Text(""),
+
+                    //Modals
+                    widget.data.subtitle1.length > 0
+                        ? PageModal(
+                            title: widget.data.subtitle1,
+                            text: widget.data.subtext1,
+                          )
+                        : (Text("")),
+
+                    widget.data.subtitle2.length > 0
+                        ? PageModal(
+                            title: widget.data.subtitle2,
+                            text: widget.data.subtext2,
+                          )
+                        : (Text("")),
+
+                    widget.data.subtitle3.length > 0
+                        ? PageModal(
+                            title: widget.data.subtitle3,
+                            text: widget.data.subtext3,
+                          )
+                        : (Text("")),
+                    widget.data.subtitle4.length > 0
+                        ? PageModal(
+                            title: widget.data.subtitle4,
+                            text: widget.data.subtext4,
+                          )
+                        : (Text("")),
+
+                    widget.data.subtitle5.length > 0
+                        ? PageModal(
+                            title: widget.data.subtitle5,
+                            text: widget.data.subtext5,
+                          )
+                        : (Text("")),
                   ],
                 ),
               ),

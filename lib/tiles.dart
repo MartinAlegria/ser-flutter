@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:floating_bottom_navigation_bar/floating_bottom_navigation_bar.dart';
-import 'package:ser/widgets/discover_small_card.dart';
 
 class Tiles extends StatelessWidget {
   final Function(int) onPageSelected;
@@ -13,12 +12,9 @@ class Tiles extends StatelessWidget {
     "Organicos",
     "Inorganicos",
     "Infecciosos",
-    "Electronicos",
     "Residuos de Manejo Especial",
     "Disposicion Final de Residuos",
-    "Gestion Fuera de Lugar",
     "Aprovechar los Residuos",
-    "Economia Ciruclar",
     "Cuidados del Agua",
     "Capacitacion a Instituciones",
   ];
@@ -28,12 +24,9 @@ class Tiles extends StatelessWidget {
     Icons.local_florist,
     Icons.delete_sweep,
     Icons.warning,
-    Icons.computer,
     Icons.folder_special,
     Icons.delete_sweep,
-    Icons.directions_car,
     Icons.lightbulb,
-    Icons.monetization_on,
     Icons.water,
     Icons.landscape_rounded,
   ];
@@ -78,8 +71,6 @@ class Tiles extends StatelessWidget {
                               onPageSelected(i + 1);
                             },
                             child: Container(
-                                width: 100,
-                                height: 100,
                                 padding: EdgeInsets.symmetric(
                                     horizontal: 10, vertical: 10),
                                 margin: EdgeInsets.symmetric(
